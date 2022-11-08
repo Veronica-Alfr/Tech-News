@@ -39,7 +39,7 @@ def scrape_noticia(html_content: str):
     comments = selector.css("div.post-comments h5::text").get()
     if comments is not None:
         commentsReturn = int(comments.strip().split()[0])
-    
+
     print(selector.css("div.entry-content > p:first-of-type *").get())
 
     return {
@@ -48,10 +48,12 @@ def scrape_noticia(html_content: str):
         "timestamp": selector.css("li.meta-date::text").get(),
         "writer": selector.css("a.url.fn.n::text").get(),
         "comments_count": commentsReturn if comments else 0,
-        "summary": "".join(selector.css("div.entry-content > p:first-of-type *::text").getall()).strip(),
+        "summary": "".join(selector.css(
+            "div.entry-content > p:first-of-type *::text").getall()).strip(),
         "tags": selector.css("li > a[rel=tag]::text").getall(),
-        "category": selector.css("div.meta-category span.label::text").get() # não tô achando
+        "category": selector.css("div.meta-category span.label::text").get()
     }
+
 
 # Requisito 5
 def get_tech_news(amount):
