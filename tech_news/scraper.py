@@ -5,7 +5,7 @@ from tech_news.database import create_news
 
 
 # Requisito 1
-def fetch(url, wait: int = 3):
+def fetch(url: str, wait: int = 3) -> str:
     headers = {
             "user-agent": "Fake user-agent"
         }
@@ -34,7 +34,7 @@ def scrape_next_page_link(html_content: str) -> list:
 
 
 # Requisito 4
-def scrape_noticia(html_content: str):
+def scrape_noticia(html_content: str) -> dict:
     selector = Selector(html_content)
 
     comments = selector.css("div.post-comments h5::text").get()
@@ -57,7 +57,7 @@ def scrape_noticia(html_content: str):
 
 
 # Requisito 5
-def get_tech_news(amount):
+def get_tech_news(amount: int) -> list:
     html = fetch("https://blog.betrybe.com/")
     news_url = []
     news_extract = []
