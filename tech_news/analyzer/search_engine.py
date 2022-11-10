@@ -12,7 +12,8 @@ def search_by_title(title):
 # Requisito 7
 def search_by_date(date):
     try:
-        formatted_date = datetime(date).strftime("%m/%d/%Y")
+        # formatted_date = datetime(date).strftime("%m/%d/%Y")
+        formatted_date = datetime.strptime(date, "%d/%m/%Y")
         news_list = search_news({"timestamp": formatted_date})
         title_and_url = [(news["title"], news["url"]) for news in news_list]
         return title_and_url
