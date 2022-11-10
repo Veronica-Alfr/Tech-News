@@ -13,7 +13,7 @@ def search_by_title(title):
 def search_by_date(date):
     try:
         # formatted_date = datetime(date).strftime("%m/%d/%Y")
-        formatted_date = datetime.strptime(date, "%d-%m-%Y").strftime(
+        formatted_date = datetime.strptime(date, "%Y-%m-%d").strftime(
             "%d/%m/%Y"
         )
         news_list = search_news({"timestamp": formatted_date})
