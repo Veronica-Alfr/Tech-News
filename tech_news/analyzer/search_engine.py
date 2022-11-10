@@ -7,6 +7,7 @@ def search_by_title(title):
     title_and_url = [(news["title"], news["url"]) for news in news_list]
     return title_and_url
 
+
 # Requisito 7
 def search_by_date(date):
     """Seu código deve vir aqui"""
