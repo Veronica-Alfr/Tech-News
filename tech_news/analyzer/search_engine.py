@@ -13,7 +13,7 @@ def search_by_title(title):
 def search_by_date(date):
     try:
         formatted_date = datetime(date).strftime("%m/%d/%Y")
-        news_list = search_news({"timestamp": formatted_date })
+        news_list = search_news({"timestamp": formatted_date})
         title_and_url = [(news["title"], news["url"]) for news in news_list]
         return title_and_url
     except ValueError:
