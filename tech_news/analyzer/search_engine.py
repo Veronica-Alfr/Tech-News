@@ -1,7 +1,11 @@
+from tech_news.database import search_news
+
+
 # Requisito 6
 def search_by_title(title):
-    """Seu código deve vir aqui"""
-
+    news_list = search_news({"title": title})
+    title_and_url = [(news["title"], news["url"]) for news in news_list]
+    return title_and_url
 
 # Requisito 7
 def search_by_date(date):
